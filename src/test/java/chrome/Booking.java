@@ -25,19 +25,19 @@ public class Booking {
         driver.findElement(By.xpath("//td[@data-date = '2020-11-03']")).click();
         driver.findElement(By.xpath("//td[@data-date = '2020-11-10']")).click();
         driver.findElement(By.xpath("//span[@class = 'xp__guests__count']")).click();
-        new WebDriverWait(driver, 1000)
-                .until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class = 'bui-button bui-button--secondary bui-stepper__add-button ']"))).click();
+//        new WebDriverWait(driver, 1000)
+//                .until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class = 'bui-button bui-button--secondary bui-stepper__add-button ']"))).click();
         //Thread.sleep(2000);
         //driver.findElement(By.xpath("//button[@class = 'bui-button bui-button--secondary bui-stepper__add-button ']")).click();
         driver.findElement(By.xpath("//button[@class = 'bui-button bui-button--secondary bui-stepper__add-button ']")).click();
         driver.findElement(By.xpath("//button[@aria-label = 'Increase number of Rooms']")).click();
         driver.findElement(By.xpath("//button[@data-sb-id = 'main']")).click();
-        new WebDriverWait(driver, 1000)
-                .until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@data-id = 'pri-5']"))).click();
+//        new WebDriverWait(driver, 1000)
+//                .until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@data-id = 'pri-5']"))).click();
         //driver.findElement(By.xpath("//span[contains(text(), '1 200 +')]")).click();
         //driver.findElement(By.xpath("//a[contains(text(), 'Цена (сначала самая низкая)')]")).click();
-        new WebDriverWait(driver, 1000)
-                .until(ExpectedConditions.elementToBeClickable(By.xpath("a//[@class='sort_option ' and @data-category='price']"))).click();
+//        new WebDriverWait(driver, 1000)
+//                .until(ExpectedConditions.elementToBeClickable(By.xpath("a//[@class='sort_option ' and @data-category='price']"))).click();
         //a[@class = '_5235a97dfa ' and @data-type = 'price'] or
         WebElement firstPrice = driver.findElement(By.xpath("//a[@data-id = 'pri-5']"));
         //firstPrice.getText();
