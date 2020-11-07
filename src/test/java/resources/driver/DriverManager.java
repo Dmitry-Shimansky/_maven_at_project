@@ -44,5 +44,4 @@ public class DriverManager {
         caps.addArguments("--ignore-certificate-errors");
         return new ChromeDriver(caps);
     }
-
 }
