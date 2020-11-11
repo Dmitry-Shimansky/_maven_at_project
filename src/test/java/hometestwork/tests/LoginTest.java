@@ -1,10 +1,10 @@
-package resources.tests;
+package hometestwork.tests;
 
 import org.junit.Test;
-import resources.pages.VoidPOLoginPage;
+import hometestwork.pages.LoginPage;
 
-public class VoidPOLoginTest {
-    private VoidPOLoginPage loginPage;
+public class LoginTest {
+    private LoginPage loginPage;
 
     @Test
     public void loginTest() {

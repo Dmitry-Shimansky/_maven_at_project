@@ -1,10 +1,10 @@
-package resources.pages;
+package hometestwork.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import resources.driver.Driver;
+import hometestwork.driver.Driver;
 
-public class VoidPOLoginPage {
+public class LoginPage {
     WebDriver driver = Driver.getWebDriver();
 
     public void enterLoginAndPass(String login, String password) {

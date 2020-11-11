@@ -1,4 +1,4 @@
-package resources.driver;
+package hometestwork.driver;
 
 import org.openqa.selenium.WebDriver;
 
@@ -23,5 +23,10 @@ public class Driver {
 
     public static void setWebDriver(WebDriver webDriver) {
         Driver.webDriver = webDriver;
+    }
+
+    public static void destroy() {
+        webDriver.quit();
+        Driver.webDriver = null;
     }
 }

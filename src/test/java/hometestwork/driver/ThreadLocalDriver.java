@@ -1,4 +1,4 @@
-package resources.driver;
+package hometestwork.driver;
 
 import org.openqa.selenium.WebDriver;
 

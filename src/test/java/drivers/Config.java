@@ -6,5 +6,6 @@ public enum Config {
     SAFARY,
     IE,
     OPERA,
+    REMOTE,
     FF
 }
