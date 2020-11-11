@@ -12,7 +12,7 @@ public class RegistrationTest {
     @Before
     public void doBefore() {
         Driver.getWebDriver().get("https://booking.com/");
-        Driver.getWebDriver().manage().window().maximize();
+//        Driver.getWebDriver().manage().window().maximize();
     }
 
     @Test

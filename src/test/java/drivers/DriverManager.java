@@ -49,10 +49,10 @@ public class DriverManager {
         ChromeOptions caps = new ChromeOptions();
         caps.addArguments("--start-maximized");
         caps.addArguments("--ignore-certificate-errors");
-        return new ChromeDriver(caps);
-//        WebDriver driver = new ChromeDriver(caps);
-//        driver.manage().window().maximize();
-//        return driver;
+//        return new ChromeDriver(caps);
+        WebDriver driver = new ChromeDriver(caps);
+        driver.manage().window().maximize();
+        return driver;
     }
 
     private static WebDriver getRemoteDriver() throws MalformedURLException {
