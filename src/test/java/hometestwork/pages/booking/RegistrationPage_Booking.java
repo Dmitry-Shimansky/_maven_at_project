@@ -1,23 +1,29 @@
-package hometestwork.pages;
+package hometestwork.pages.booking;
 
+import hometestwork.pages.trashmail.NewMail;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import hometestwork.driver.Driver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class RegistrationPage {
+public class RegistrationPage_Booking {
 
     WebDriver driver = Driver.getWebDriver();
 
-    public void registrationUser() throws InterruptedException {
+    public void registrationUser(String mail) {
 
-        driver.findElement(By.id("current_account_create")).click();
-        Thread.sleep(5000);
-        driver.findElement(By.id("login_name_register")).sendKeys(new NewMail().name + "@trashmail.com");
+        driver.findElement(By.xpath("//div[@class = 'sign_in_wrapper']")).click();
+        new WebDriverWait(Driver.getWebDriver(), 5000)
+                .until(ExpectedConditions.elementToBeClickable(By.id("login_name_register")));
+        driver.findElement(By.id("login_name_register")).sendKeys(mail);
         driver.findElement(By.xpath("//button[@class = 'bui-button bui-button--large bui-button--wide']")).click();
-        Thread.sleep(5000);
+
     }
 
     public void clickEnterButton() {
+        new WebDriverWait(Driver.getWebDriver(), 5000)
+                .until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class = 'bui-button bui-button--large bui-button--wide']")));
         driver.findElement(By.xpath("//button[@class = 'bui-button bui-button--large bui-button--wide']")).click();
     }
 

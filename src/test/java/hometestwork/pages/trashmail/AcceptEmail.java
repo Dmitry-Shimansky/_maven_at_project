@@ -1,4 +1,4 @@
-package hometestwork.pages;
+package hometestwork.pages.trashmail;
 
 import org.junit.After;
 import org.junit.Before;
