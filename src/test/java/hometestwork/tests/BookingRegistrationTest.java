@@ -1,6 +1,7 @@
 package hometestwork.tests;
 
 import hometestwork.driver.Driver;
+import hometestwork.settings.ConfigURLs;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -16,20 +17,17 @@ public class BookingRegistrationTest {
 
     @Before
     public void doBefore() {
-        Driver.getWebDriver().get("https://booking.com/");
+        Driver.getWebDriver().get(ConfigURLs.BOOKING);
     }
 
     @Test
     public void registration (String mail) {
-        WebDriverWait wait = new WebDriverWait(Driver.getWebDriver(), 20);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class = 'sign_in_wrapper']")));
 
         registrationUser.registrationUser(mail);
         registrationUser.clickEnterButton();
         registrationUser.enterPassword("Asdfghjkl5");
         registrationUser.clickCreateAccountButton();
-        new WebDriverWait(Driver.getWebDriver(), 5000)
-                .until(ExpectedConditions.elementToBeClickable(By.id("wl252-modal-name")));
+
         WebElement textInclude = Driver.getWebDriver().findElement(By.id("wl252-modal-name"));
 
         Assert.assertEquals("wl252-modal-name",textInclude.getAttribute("id"));

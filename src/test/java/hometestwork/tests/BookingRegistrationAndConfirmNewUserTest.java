@@ -29,17 +29,20 @@ public class BookingRegistrationAndConfirmNewUserTest {
 
     @Test
     public void newMailTest() {
-        loginTrashMail.enterLoginAndPass(ConfigForLogin.USER_TRASH_LOGIN,ConfigForLogin.USER_TRASH_LOGIN);
+        loginTrashMail.enterLoginAndPass(ConfigForLogin.USER_TRASH_LOGIN,ConfigForLogin.USER_TRASH_PASSWORD);
         loginTrashMail.clickLoginButton();
 
-        new WebDriverWait(Driver.getWebDriver(), 10)
-                .until(ExpectedConditions.elementToBeClickable(By.id("fe-grid_header-title-textEl")));
-
         newMail.addNewMail();
+
         Driver.getWebDriver().get(ConfigURLs.BOOKING);
 
-        bookingRegistration.registration(newMail.mail);
+        bookingRegistration.registrationUser(newMail.mail);
+        bookingRegistration.clickEnterButton();
+        bookingRegistration.enterPassword(ConfigForLogin.USER_BOOKING_PASSWORD);
+        bookingRegistration.clickCreateAccountButton();
+
         Driver.getWebDriver().get(ConfigURLs.GOOGLE);
+
         confirmAccount.clickSignInButton();
         confirmAccount.enterMail();
         confirmAccount.clickNextButton();

@@ -2,6 +2,7 @@ package hometestwork.tests;
 
 import hometestwork.driver.Driver;
 import hometestwork.pages.google.ConfirmAccountPage;
+import hometestwork.settings.ConfigURLs;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -16,12 +17,14 @@ public class ConfirmAccountTest {
 
     @Before
     public void doBefore() {
-        Driver.getWebDriver().get("https://google.com/mail/");
+        Driver.getWebDriver().get(ConfigURLs.GOOGLE);
     }
 
     @Test
     public void loginGoogleTest() {
-//        confirmAccount.clickSignInButton();
+
+        confirmAccount.clickMailButton();
+        confirmAccount.clickSignInButton();
         confirmAccount.enterMail();
         confirmAccount.clickNextButton();
         confirmAccount.enterPassword();

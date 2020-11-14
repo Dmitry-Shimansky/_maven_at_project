@@ -23,11 +23,8 @@ public class TrashMailLoginTest {
 
     @Test
     public void loginTest() {
-        trashMail.enterLoginAndPass(ConfigForLogin.USER_TRASH_LOGIN,ConfigForLogin.USER_TRASH_LOGIN);
+        trashMail.enterLoginAndPass(ConfigForLogin.USER_TRASH_LOGIN,ConfigForLogin.USER_TRASH_PASSWORD);
         trashMail.clickLoginButton();
-
-        new WebDriverWait(Driver.getWebDriver(), 10)
-                .until(ExpectedConditions.elementToBeClickable(By.id("fe-grid_header-title-textEl")));
 
         WebElement loginValue = Driver.getWebDriver().findElement(By.id("fe-grid_header-title-textEl"));
 

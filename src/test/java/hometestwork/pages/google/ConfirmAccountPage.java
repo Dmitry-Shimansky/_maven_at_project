@@ -1,6 +1,8 @@
 package hometestwork.pages.google;
 
 import hometestwork.driver.Driver;
+import hometestwork.settings.ConfigForLogin;
+import hometestwork.settings.ConfigURLs;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -8,17 +10,23 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ConfirmAccountPage {
     WebDriver driver = Driver.getWebDriver();
+    private final String SIGN_IN_BUTTON = "//div[@class = 'hercules-header h-c-header h-c-header--product-marketing-one-tier header--desktop']//a[@ga-event-action = 'sign in']";
+
+    public  void clickMailButton() {
+        WebDriverWait wait = new WebDriverWait(Driver.getWebDriver(), 20);
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@data-pid = '23'][1]"))).click();
+    }
 
     public void clickSignInButton() {
         WebDriverWait wait = new WebDriverWait(Driver.getWebDriver(), 20);
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@ga-event-action = 'sign in']"))).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(SIGN_IN_BUTTON))).click();
     }
 
     public void enterMail() {
         WebDriverWait wait = new WebDriverWait(Driver.getWebDriver(), 20);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("identifierId")));
 
-        driver.findElement(By.id("identifierId")).sendKeys("Shimansky.Dmitry@gmail.com");
+        driver.findElement(By.id("identifierId")).sendKeys(ConfigForLogin.USER_GOOGLE_LOGIN);
     }
 
     public void clickNextButton() {
@@ -29,7 +37,7 @@ public class ConfirmAccountPage {
         WebDriverWait wait = new WebDriverWait(Driver.getWebDriver(), 20);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@type = 'password']")));
 
-        driver.findElement(By.xpath("//input[@type = 'password']")).sendKeys("80172091353");
+        driver.findElement(By.xpath("//input[@type = 'password']")).sendKeys(ConfigForLogin.USER_GOOGLE_PASSWORD);
     }
 
     public void clickNextPasswordButton() {

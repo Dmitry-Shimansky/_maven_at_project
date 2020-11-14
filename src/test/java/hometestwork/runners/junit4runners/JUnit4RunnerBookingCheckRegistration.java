@@ -9,5 +9,5 @@ import org.junit.runners.Suite;
 //        LoginTest_TrashMail.class,
         BookingRegistrationAndConfirmNewUserTest.class
 })
-public class JUnit4Runner_CheckRegistration_Booking {
+public class JUnit4RunnerBookingCheckRegistration {
 }
