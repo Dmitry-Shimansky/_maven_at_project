@@ -1,4 +1,4 @@
-package day19_class_work.steps;
+package day19ClassWork.steps;
 
 import drivers.Driver;
 import io.cucumber.java.en.Given;

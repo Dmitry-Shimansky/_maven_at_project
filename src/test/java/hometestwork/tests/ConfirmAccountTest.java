@@ -1,7 +1,7 @@
 package hometestwork.tests;
 
 import hometestwork.driver.Driver;
-import hometestwork.pages.google.ConfirmAccount;
+import hometestwork.pages.google.ConfirmAccountPage;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ConfirmAccountTest {
-    private ConfirmAccount confirmAccount = new ConfirmAccount();
+    private ConfirmAccountPage confirmAccount = new ConfirmAccountPage();
 
     @Before
     public void doBefore() {

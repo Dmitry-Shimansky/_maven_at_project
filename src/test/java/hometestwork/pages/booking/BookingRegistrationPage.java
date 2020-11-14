@@ -7,7 +7,7 @@ import hometestwork.driver.Driver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class RegistrationPage_Booking {
+public class BookingRegistrationPage {
 
     WebDriver driver = Driver.getWebDriver();
 

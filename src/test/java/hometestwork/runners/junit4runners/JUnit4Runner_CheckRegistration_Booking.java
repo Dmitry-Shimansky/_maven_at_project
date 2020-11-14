@@ -1,13 +1,13 @@
 package hometestwork.runners.junit4runners;
 
-import hometestwork.tests.NewMail_RegistrationTest_Booking;
+import hometestwork.tests.BookingRegistrationAndConfirmNewUserTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
 //        LoginTest_TrashMail.class,
-        NewMail_RegistrationTest_Booking.class
+        BookingRegistrationAndConfirmNewUserTest.class
 })
 public class JUnit4Runner_CheckRegistration_Booking {
 }

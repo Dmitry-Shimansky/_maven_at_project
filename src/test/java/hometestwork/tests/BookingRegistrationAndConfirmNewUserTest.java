@@ -1,8 +1,12 @@
 package hometestwork.tests;
 
 import hometestwork.driver.Driver;
-import hometestwork.pages.google.ConfirmAccount;
-import hometestwork.pages.trashmail.CreateNewMail_TrashMail;
+import hometestwork.pages.booking.BookingRegistrationPage;
+import hometestwork.pages.google.ConfirmAccountPage;
+import hometestwork.pages.trashmail.TrashMailCreateNewMailPage;
+import hometestwork.pages.trashmail.TrashMailLoginPage;
+import hometestwork.settings.ConfigForLogin;
+import hometestwork.settings.ConfigURLs;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -12,24 +16,30 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class NewMail_RegistrationTest_Booking {
-    private CreateNewMail_TrashMail newMail = new CreateNewMail_TrashMail();
-    private LoginTest_TrashMail login = new LoginTest_TrashMail();
-    private RegistrationTest_Booking bookingRegistration = new RegistrationTest_Booking();
-    private ConfirmAccount confirmAccount = new ConfirmAccount();
+public class BookingRegistrationAndConfirmNewUserTest {
+    private TrashMailCreateNewMailPage newMail = new TrashMailCreateNewMailPage();
+    private TrashMailLoginPage loginTrashMail = new TrashMailLoginPage();
+    private BookingRegistrationPage bookingRegistration = new BookingRegistrationPage();
+    private ConfirmAccountPage confirmAccount = new ConfirmAccountPage();
 
     @Before
     public void doBefore() {
-        Driver.getWebDriver().get("https://trashmail.com/");
+        Driver.getWebDriver().get(ConfigURLs.TRASHMAIL);
     }
 
     @Test
     public void newMailTest() {
-        login.loginTest();
+        loginTrashMail.enterLoginAndPass(ConfigForLogin.USER_TRASH_LOGIN,ConfigForLogin.USER_TRASH_LOGIN);
+        loginTrashMail.clickLoginButton();
+
+        new WebDriverWait(Driver.getWebDriver(), 10)
+                .until(ExpectedConditions.elementToBeClickable(By.id("fe-grid_header-title-textEl")));
+
         newMail.addNewMail();
-        Driver.getWebDriver().get("https://booking.com/");
+        Driver.getWebDriver().get(ConfigURLs.BOOKING);
+
         bookingRegistration.registration(newMail.mail);
-        Driver.getWebDriver().get("https://google.com/mail");
+        Driver.getWebDriver().get(ConfigURLs.GOOGLE);
         confirmAccount.clickSignInButton();
         confirmAccount.enterMail();
         confirmAccount.clickNextButton();

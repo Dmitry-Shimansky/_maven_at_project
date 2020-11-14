@@ -4,7 +4,7 @@ import hometestwork.driver.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class LoginPage_TrashMail {
+public class TrashMailLoginPage {
     WebDriver driver = Driver.getWebDriver();
 
     public void enterLoginAndPass(String login,String password) {

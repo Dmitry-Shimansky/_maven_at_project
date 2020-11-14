@@ -6,7 +6,7 @@ import hometestwork.driver.Driver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LoginPage_Booking {
+public class BookingLoginPage {
     WebDriver driver = Driver.getWebDriver();
 
     public void clickLoginButton() {

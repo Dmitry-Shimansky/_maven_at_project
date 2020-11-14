@@ -5,14 +5,14 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import hometestwork.pages.booking.LoginPage_Booking;
+import hometestwork.pages.booking.BookingLoginPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LoginTest_Booking {
-    private LoginPage_Booking loginPage = new LoginPage_Booking();
+public class BookingLoginTest {
+    private BookingLoginPage loginPage = new BookingLoginPage();
 
     @Before
     public void doBefore() {

@@ -1,8 +1,6 @@
 package hometestwork.runners.junit4runners;
 
-import hometestwork.pages.google.ConfirmAccount;
 import hometestwork.tests.ConfirmAccountTest;
-import hometestwork.tests.LoginTest_Booking;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 

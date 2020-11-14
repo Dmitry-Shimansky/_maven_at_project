@@ -1,4 +1,4 @@
-package day19_class_work.suites;
+package day19ClassWork.suites;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -7,9 +7,9 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         plugin = {"pretty"},
-        glue = {"steps.fake"},
-        features = {"src/test/features/fake/FakeOne.feature"}
+        glue = {"day19_class_work.steps"},
+        features = {"src/test/resources/features/fake/FakeTwo.feature"}
 )
 
-public class FakeRunner1 {
+public class FakeRunner2 {
 }

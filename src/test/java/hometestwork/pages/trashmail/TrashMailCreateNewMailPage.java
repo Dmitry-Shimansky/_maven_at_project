@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class CreateNewMail_TrashMail {
+public class TrashMailCreateNewMailPage {
     WebDriver driver = Driver.getWebDriver();
     public String mail;
 
@@ -14,7 +14,7 @@ public class CreateNewMail_TrashMail {
         driver.findElement(By.id("fe-save-btnWrap")).click();
         driver.findElement(By.xpath("//tr[@class = '  x-grid-row']")).click();
         WebElement eMail = driver.findElement(By.id("fe-dea-address-inputEl"));
-//        eMail.getAttribute("value");
+
         System.out.println(eMail.getAttribute("value"));
 
         return mail = eMail.getAttribute("value");

@@ -1,7 +1,9 @@
 package hometestwork.tests;
 
 import hometestwork.driver.Driver;
-import hometestwork.pages.trashmail.LoginPage_TrashMail;
+import hometestwork.pages.trashmail.TrashMailLoginPage;
+import hometestwork.settings.ConfigForLogin;
+import hometestwork.settings.ConfigURLs;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -11,20 +13,20 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LoginTest_TrashMail {
-    private LoginPage_TrashMail trashMail = new LoginPage_TrashMail();
+public class TrashMailLoginTest {
+    private TrashMailLoginPage trashMail = new TrashMailLoginPage();
 
     @Before
     public void doBefore() {
-        Driver.getWebDriver().get("https://trashmail.com/");
+        Driver.getWebDriver().get(ConfigURLs.TRASHMAIL);
     }
 
     @Test
     public void loginTest() {
-        trashMail.enterLoginAndPass("Dmitry_Shimansky","2091353");
+        trashMail.enterLoginAndPass(ConfigForLogin.USER_TRASH_LOGIN,ConfigForLogin.USER_TRASH_LOGIN);
         trashMail.clickLoginButton();
 
-        new WebDriverWait(Driver.getWebDriver(), 5000)
+        new WebDriverWait(Driver.getWebDriver(), 10)
                 .until(ExpectedConditions.elementToBeClickable(By.id("fe-grid_header-title-textEl")));
 
         WebElement loginValue = Driver.getWebDriver().findElement(By.id("fe-grid_header-title-textEl"));
