@@ -5,11 +5,11 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class GetNextDate {
+public class GetNewDate {
 
     private static final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
-    public static String nextDate(int numberOfMonth) {
+    public static String nextDate(int countOfMonth, int countOfDays) {
 
         Date currentDate = new Date();
 //        System.out.println(dateFormat.format(currentDate));
@@ -20,8 +20,8 @@ public class GetNextDate {
 
         // manipulate date
 //            c.add(Calendar.YEAR, 1);
-        c.add(Calendar.MONTH, numberOfMonth);
-//            c.add(Calendar.DATE, 1); //same with c.add(Calendar.DAY_OF_MONTH, 1);
+        c.add(Calendar.MONTH, countOfMonth);
+        c.add(Calendar.DATE, countOfDays); //same with c.add(Calendar.DAY_OF_MONTH, 1);
 //            c.add(Calendar.HOUR, 1);
 //            c.add(Calendar.MINUTE, 1);
 //            c.add(Calendar.SECOND, 1);

@@ -1,9 +1,9 @@
 package hometestwork.runners.junit4runners;
 
-import hometestwork.utils.GetNextDate;
+import hometestwork.utils.GetNewDate;
 
 public class runnerTest {
     public static void main(String[] args) {
-        System.out.println(GetNextDate.nextDate(1));
+//        System.out.println(GetNewDate.nextDate(1));
     }
 }
