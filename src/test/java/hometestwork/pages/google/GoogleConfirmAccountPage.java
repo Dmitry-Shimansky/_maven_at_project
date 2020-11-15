@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class ConfirmAccountPage {
+public class GoogleConfirmAccountPage {
     WebDriver driver = Driver.getWebDriver();
     private final String SIGN_IN_BUTTON = "//div[@class = 'hercules-header h-c-header h-c-header--product-marketing-one-tier header--desktop']//a[@ga-event-action = 'sign in']";
 

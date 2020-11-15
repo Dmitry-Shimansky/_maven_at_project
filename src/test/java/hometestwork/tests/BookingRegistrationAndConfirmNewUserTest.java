@@ -2,7 +2,8 @@ package hometestwork.tests;
 
 import hometestwork.driver.Driver;
 import hometestwork.pages.booking.BookingRegistrationPage;
-import hometestwork.pages.google.ConfirmAccountPage;
+import hometestwork.pages.google.GoogleConfirmAccountPage;
+import hometestwork.pages.mailru.MailRuConfirmAccountPage;
 import hometestwork.pages.trashmail.TrashMailCreateNewMailPage;
 import hometestwork.pages.trashmail.TrashMailLoginPage;
 import hometestwork.settings.ConfigForLogin;
@@ -13,14 +14,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BookingRegistrationAndConfirmNewUserTest {
     private TrashMailCreateNewMailPage newMail = new TrashMailCreateNewMailPage();
     private TrashMailLoginPage loginTrashMail = new TrashMailLoginPage();
     private BookingRegistrationPage bookingRegistration = new BookingRegistrationPage();
-    private ConfirmAccountPage confirmAccount = new ConfirmAccountPage();
 
     @Before
     public void doBefore() {
@@ -33,6 +31,7 @@ public class BookingRegistrationAndConfirmNewUserTest {
         loginTrashMail.clickLoginButton();
 
         newMail.addNewMail();
+        MailRuConfirmAccountPage confirmBookingAccount = new MailRuConfirmAccountPage(newMail);
 
         Driver.getWebDriver().get(ConfigURLs.BOOKING);
 
@@ -41,24 +40,16 @@ public class BookingRegistrationAndConfirmNewUserTest {
         bookingRegistration.enterPassword(ConfigForLogin.USER_BOOKING_PASSWORD);
         bookingRegistration.clickCreateAccountButton();
 
-        Driver.getWebDriver().get(ConfigURLs.GOOGLE);
+        Driver.getWebDriver().get(ConfigURLs.MAILRU);
 
-        confirmAccount.clickSignInButton();
-        confirmAccount.enterMail();
-        confirmAccount.clickNextButton();
-        confirmAccount.enterPassword();
-        confirmAccount.clickNextPasswordButton();
-        confirmAccount.clickNotWrightNow();
-        confirmAccount.enterMail();
-        confirmAccount.clickConfirmButton();
+        confirmBookingAccount.enterEmailAndSubmit();
+        confirmBookingAccount.enterPassAndSubmit();
+        confirmBookingAccount.enterToEmail();
+        confirmBookingAccount.clickConfirmButton();
 
-        WebDriverWait wait = new WebDriverWait(Driver.getWebDriver(), 20);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[contains(text(), 'Email confirmed')]")));
-
-        WebElement element = Driver.getWebDriver().findElement(By.xpath("//h1[contains(text(), 'Email confirmed')]"));
+        WebElement element = Driver.getWebDriver().findElement(By.id("ed01fcee-d690-46c3-9f0d-b43e1340231b"));
 
         Assert.assertEquals("Email confirmed",element.getAttribute("value"));
-
     }
 
     @After

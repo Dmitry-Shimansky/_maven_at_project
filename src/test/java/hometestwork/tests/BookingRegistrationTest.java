@@ -1,6 +1,7 @@
 package hometestwork.tests;
 
 import hometestwork.driver.Driver;
+import hometestwork.settings.ConfigForLogin;
 import hometestwork.settings.ConfigURLs;
 import org.junit.After;
 import org.junit.Assert;
@@ -25,7 +26,7 @@ public class BookingRegistrationTest {
 
         registrationUser.registrationUser(mail);
         registrationUser.clickEnterButton();
-        registrationUser.enterPassword("Asdfghjkl5");
+        registrationUser.enterPassword(ConfigForLogin.USER_BOOKING_PASSWORD);
         registrationUser.clickCreateAccountButton();
 
         WebElement textInclude = Driver.getWebDriver().findElement(By.id("wl252-modal-name"));
