@@ -30,10 +30,6 @@ public class BookingLoginTest {
         loginPage.enterPass("Qwertyuiop1");
         loginPage.clickSignInButton();
 
-//Ожидание загрузки элемента
-        new WebDriverWait(Driver.getWebDriver(), 5000)
-                .until(ExpectedConditions.elementToBeClickable(By.id("wl252-modal-name")));
-
         WebElement logoText = Driver.getWebDriver().findElement(By.id("wl252-modal-name"));
 
 //        Проверка

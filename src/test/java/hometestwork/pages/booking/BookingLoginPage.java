@@ -14,7 +14,7 @@ public class BookingLoginPage {
     }
 
     public void enterLogin(String login) {
-        new WebDriverWait(Driver.getWebDriver(), 5000)
+        new WebDriverWait(Driver.getWebDriver(), 10)
                 .until(ExpectedConditions.elementToBeClickable(By.id("username")));
         driver.findElement(By.id("username")).sendKeys(login);
     }
@@ -24,12 +24,14 @@ public class BookingLoginPage {
     }
 
     public void enterPass(String password) {
-        new WebDriverWait(Driver.getWebDriver(), 5000)
+        new WebDriverWait(Driver.getWebDriver(), 10)
                 .until(ExpectedConditions.elementToBeClickable(By.id("password")));
         driver.findElement(By.id("password")).sendKeys(password);
     }
 
     public void clickSignInButton() {
         driver.findElement(By.xpath("//button[@class = 'bui-button bui-button--large bui-button--wide']")).click();
+        new WebDriverWait(Driver.getWebDriver(), 10)
+                .until(ExpectedConditions.elementToBeClickable(By.id("ss")));
     }
 }
