@@ -1,0 +1,9 @@
+name: YAML Test Suite
+parallel: classes
+threadCount: 2
+
+tests:
+  - name: Booking tests
+    classes:
+      - src.test.java.hometestwork.tests.BookingRegistrationAndConfirmNewUserTest
+      - src.test.java.hometestwork.tests.BookingVerifyAllHeadersTest
