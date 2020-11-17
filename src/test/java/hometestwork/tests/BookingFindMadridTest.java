@@ -23,15 +23,16 @@ public class BookingFindMadridTest {
 
         loginPage.clickLoginButton();
         loginPage.enterLogin(ConfigForLogin.USER_BOOKING_LOGIN);
-        loginPage.clickNextButton();
+        loginPage.clickContinueButton();
         loginPage.enterPass(ConfigForLogin.USER_BOOKING_PASSWORD);
         loginPage.clickSignInButton();
 
         findHotels.findMadrid();
-        findHotels.clickToFavouriteFirstAndLast();
 
         findHotels.firstHotelName();
         findHotels.secondHotelName();
+
+        findHotels.clickToFavouriteFirstAndLast();
 
         findHotels.clickMyNextTrip();
 

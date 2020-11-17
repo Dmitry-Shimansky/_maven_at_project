@@ -19,6 +19,7 @@ public class BookingFindMadridPage {
     private final String LASTHOTEL = "//div[@id = 'hotellist_inner']/div[@data-et-view][last()]//button";
     private final String FIRSTHOTELNAME = "//div[@data-et-click]//span[@data-et-click]";
     private final String SECONDHOTELNAME = "//div[@id = 'hotellist_inner']/div[@data-et-view][last()]//span[@data-et-click]";
+    private final String MYNEXTTRIPBUTTON = "//div[@id = 'hotel-wishlists'][2]//div[@class = 'wl-dropdown-saved-to-message']/a";
     public String firstHotelNameSearchlist;
     public String secondHotelNameSearchlist;
     public String firstHotelNameFavouriteList;
@@ -48,18 +49,22 @@ public class BookingFindMadridPage {
         driver.findElement(By.xpath(LASTHOTEL)).click();
     }
 
-    public String firstHotelName() {
+    public void firstHotelName() {
+        new WebDriverWait(Driver.getWebDriver(), 10)
+                .until(ExpectedConditions.elementToBeClickable(By.xpath(FIRSTHOTELNAME)));
         WebElement firstHotelNameSearchList = Driver.getWebDriver().findElement(By.xpath(FIRSTHOTELNAME));
-        return firstHotelNameSearchlist = firstHotelNameSearchList.getAttribute("value");
+        firstHotelNameSearchlist = firstHotelNameSearchList.getAttribute("value");
     }
 
-    public String secondHotelName() {
+    public void secondHotelName() {
         WebElement secondHotelNameSearchList = Driver.getWebDriver().findElement(By.xpath(SECONDHOTELNAME));
-        return secondHotelNameSearchlist = secondHotelNameSearchList.getAttribute("value");
+        secondHotelNameSearchlist = secondHotelNameSearchList.getAttribute("value");
     }
 
     public void clickMyNextTrip() {
-        driver.findElement(By.xpath("//div[@class = 'wl-dropdown-saved-to-message']")).click();
+        new WebDriverWait(Driver.getWebDriver(), 10)
+                .until(ExpectedConditions.elementToBeClickable(By.xpath(MYNEXTTRIPBUTTON)));
+        driver.findElement(By.xpath(MYNEXTTRIPBUTTON)).click();
         new WebDriverWait(Driver.getWebDriver(), 20)
                 .until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@data-et-click]//span[@data-et-click]")));
     }

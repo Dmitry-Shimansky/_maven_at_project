@@ -25,7 +25,7 @@ public class BookingLoginTest {
         loginPage.clickLoginButton();
 
         loginPage.enterLogin("asd@mail.by");
-        loginPage.clickNextButton();
+        loginPage.clickContinueButton();
 
         loginPage.enterPass("Qwertyuiop1");
         loginPage.clickSignInButton();

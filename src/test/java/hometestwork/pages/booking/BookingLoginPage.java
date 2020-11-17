@@ -10,7 +10,7 @@ public class BookingLoginPage {
     WebDriver driver = Driver.getWebDriver();
 
     public void clickLoginButton() {
-        driver.findElement(By.id("current_account")).click();
+        driver.findElement(By.xpath("//span[contains(text(),'Sign in')]")).click();
     }
 
     public void enterLogin(String login) {
@@ -19,7 +19,7 @@ public class BookingLoginPage {
         driver.findElement(By.id("username")).sendKeys(login);
     }
 
-    public void clickNextButton() {
+    public void clickContinueButton() {
         driver.findElement(By.xpath("//button[@class = 'bui-button bui-button--large bui-button--wide']")).click();
     }
 
