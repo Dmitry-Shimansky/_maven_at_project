@@ -10,6 +10,8 @@ public class BookingLoginPage {
     WebDriver driver = Driver.getWebDriver();
 
     public void clickLoginButton() {
+        new WebDriverWait(Driver.getWebDriver(), 10)
+                .until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Sign in')]")));
         driver.findElement(By.xpath("//span[contains(text(),'Sign in')]")).click();
     }
 

@@ -1,6 +1,8 @@
 package hometestwork.tests;
 
 import hometestwork.driver.Driver;
+import hometestwork.settings.ConfigForLogin;
+import hometestwork.settings.ConfigURLs;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -16,7 +18,7 @@ public class BookingLoginTest {
 
     @Before
     public void doBefore() {
-        Driver.getWebDriver().get("https://booking.com/");
+        Driver.getWebDriver().get(ConfigURLs.BOOKING);
     }
 
     @Test
@@ -24,10 +26,10 @@ public class BookingLoginTest {
 
         loginPage.clickLoginButton();
 
-        loginPage.enterLogin("asd@mail.by");
+        loginPage.enterLogin(ConfigForLogin.USER_BOOKING_LOGIN);
         loginPage.clickContinueButton();
 
-        loginPage.enterPass("Qwertyuiop1");
+        loginPage.enterPass(ConfigForLogin.USER_BOOKING_PASSWORD);
         loginPage.clickSignInButton();
 
         WebElement logoText = Driver.getWebDriver().findElement(By.id("wl252-modal-name"));
