@@ -28,4 +28,10 @@ public class FakeGuiSteps {
         LOGGER.info("I just passed");
         Assert.assertTrue(true);
     }
+
+    @Then("I just failed")
+    public void justFailedStep() {
+        LOGGER.info("I just failed");
+        Assert.assertTrue(false);
+    }
 }

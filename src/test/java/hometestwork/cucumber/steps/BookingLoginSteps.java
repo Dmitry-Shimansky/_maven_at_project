@@ -1,7 +1,7 @@
 package hometestwork.cucumber.steps;
 
 import day19ClassWork.steps.FakeGuiSteps;
-import drivers.Driver;
+import hometestwork.driver.Driver;
 import hometestwork.pages.booking.BookingLoginPage;
 import hometestwork.settings.ConfigForLogin;
 import hometestwork.settings.ConfigURLs;

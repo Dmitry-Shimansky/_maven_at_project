@@ -52,30 +52,36 @@ public class BookingFindMadridPage {
     public void firstHotelName() {
         new WebDriverWait(Driver.getWebDriver(), 10)
                 .until(ExpectedConditions.elementToBeClickable(By.xpath(FIRSTHOTELNAME)));
-        WebElement firstHotelNameSearchList = Driver.getWebDriver().findElement(By.xpath(FIRSTHOTELNAME));
-        firstHotelNameSearchlist = firstHotelNameSearchList.getAttribute("value");
+        WebElement firstHotelNameSearchList = Driver.getWebDriver().findElements(By.xpath(FIRSTHOTELNAME)).get(0);
+        System.out.println(firstHotelNameSearchList.getText());
+        firstHotelNameSearchlist = firstHotelNameSearchList.getText();
     }
 
     public void secondHotelName() {
-        WebElement secondHotelNameSearchList = Driver.getWebDriver().findElement(By.xpath(SECONDHOTELNAME));
-        secondHotelNameSearchlist = secondHotelNameSearchList.getAttribute("value");
+        WebElement secondHotelNameSearchList = Driver.getWebDriver().findElements(By.xpath(SECONDHOTELNAME)).get(0);
+        System.out.println(secondHotelNameSearchList.getText());
+        secondHotelNameSearchlist = secondHotelNameSearchList.getText();
     }
 
     public void clickMyNextTrip() {
         new WebDriverWait(Driver.getWebDriver(), 10)
                 .until(ExpectedConditions.elementToBeClickable(By.xpath(MYNEXTTRIPBUTTON)));
         driver.findElement(By.xpath(MYNEXTTRIPBUTTON)).click();
-        new WebDriverWait(Driver.getWebDriver(), 20)
-                .until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@data-et-click]//span[@data-et-click]")));
     }
 
-    public String firstHotelNameFavouriteList() {
+    public void firstHotelNameFavouriteList() {
+        new WebDriverWait(Driver.getWebDriver(), 10)
+                .until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(),'"+ firstHotelNameSearchlist +"')]")));
         WebElement firstHotel = Driver.getWebDriver().findElement(By.xpath("//a[contains(text(),'"+ firstHotelNameSearchlist +"')]"));
-        return firstHotelNameFavouriteList = firstHotel.getAttribute("value");
+        System.out.println(firstHotel);
+        firstHotelNameFavouriteList = firstHotel.getAttribute("value");
     }
 
-    public String secondHotelNameFavouriteList() {
+    public void secondHotelNameFavouriteList() {
+        new WebDriverWait(Driver.getWebDriver(), 10)
+                .until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(),'"+ secondHotelNameSearchlist +"')]")));
         WebElement secondHotel = Driver.getWebDriver().findElement(By.xpath("//a[contains(text(),'"+ secondHotelNameSearchlist +"')]"));
-        return secondHotelNameFavouriteList = secondHotel.getAttribute("value");
+        System.out.println(secondHotel);
+        secondHotelNameFavouriteList = secondHotel.getAttribute("value");
     }
 }

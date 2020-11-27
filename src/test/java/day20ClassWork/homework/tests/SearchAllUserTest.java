@@ -12,7 +12,7 @@ public class SearchAllUserTest {
         String a = RestAssured
                 .given()
                 .spec(Assured.REQUEST_SPECIFICATION)
-                .body(new Search("Alberto", true))
+                .body(new Search("", true))
                 .when()
                 .post()
                 .then()

@@ -9,17 +9,20 @@ import hometestwork.pages.trashmail.TrashMailLoginPage;
 import hometestwork.settings.ConfigForLogin;
 import hometestwork.settings.ConfigURLs;
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 public class BookingRegistrationAndConfirmNewUserTest {
     private TrashMailCreateNewMailPage newMail = new TrashMailCreateNewMailPage();
     private TrashMailLoginPage loginTrashMail = new TrashMailLoginPage();
     private BookingRegistrationPage bookingRegistration = new BookingRegistrationPage();
 
+    @BeforeTest
     @Before
     public void doBefore() {
         Driver.getWebDriver().get(ConfigURLs.TRASHMAIL);
@@ -52,6 +55,7 @@ public class BookingRegistrationAndConfirmNewUserTest {
         Assert.assertEquals("Email confirmed",element.getAttribute("value"));
     }
 
+    @AfterTest
     @After
     public void doAfter() {
         Driver.destroy();
