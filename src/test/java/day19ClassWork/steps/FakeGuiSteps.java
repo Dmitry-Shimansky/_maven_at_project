@@ -1,6 +1,6 @@
 package day19ClassWork.steps;
 
-import drivers.Driver;
+import hometestwork.driver.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -32,6 +32,6 @@ public class FakeGuiSteps {
     @Then("I just failed")
     public void justFailedStep() {
         LOGGER.info("I just failed");
-        Assert.assertTrue(false);
+        Assert.assertFalse(false);
     }
 }
