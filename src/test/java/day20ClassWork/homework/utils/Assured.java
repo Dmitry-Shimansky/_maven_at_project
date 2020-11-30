@@ -10,7 +10,7 @@ public class Assured {
 
     public final static RequestSpecification REQUEST_SPECIFICATION = new RequestSpecBuilder()
             .setBaseUri(ConfigUrl.LOCAL)
-            .setPort(8080)
+            .setPort(8001)
             .setAccept(ContentType.JSON)
             .setContentType(ContentType.JSON)
             .log(LogDetail.ALL)
