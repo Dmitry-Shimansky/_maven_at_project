@@ -1,6 +1,5 @@
 package day23ClassWork.homeWork.runners;
 
-import day23ClassWork.homeWork.pages.CheckboxPage;
 import day23ClassWork.homeWork.tests.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
