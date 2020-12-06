@@ -1,4 +1,4 @@
-package day23ClassWork.homeWork.utils;
+package day23ClassWork.homeWork.utils.reporter;
 
 import day23ClassWork.homeWork.suites.ConfigUrls;
 import io.restassured.authentication.PreemptiveBasicAuthScheme;

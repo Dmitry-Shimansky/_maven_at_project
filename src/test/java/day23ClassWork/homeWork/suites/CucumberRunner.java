@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        plugin = {"pretty", "day23ClassWork.homeWork.utils.TestRailReport"},
+        plugin = {"pretty", "day23ClassWork.homeWork.utils.reporter.CustomCucumberPlugin"},
         glue = {"day23ClassWork.homeWork.steps"},
         features = {"src/test/resources/features/fake/day23hWTextBoxSteps.feature"}
 )

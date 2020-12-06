@@ -1,15 +1,14 @@
-package day23ClassWork.homeWork.utils;
+package day23ClassWork.homeWork.utils.reporter;
 
 import cucumber.api.Result;
 import cucumber.api.event.*;
+import day23ClassWork.homeWork.settings.TestStatusBody;
+import day23ClassWork.homeWork.utils.reporter.Assured;
+import day23ClassWork.homeWork.utils.reporter.Authentication;
 import io.restassured.RestAssured;
-import io.restassured.authentication.PreemptiveBasicAuthScheme;
-import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.filter.log.LogDetail;
-import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 
-public class TestRailReport implements ConcurrentEventListener {
+public class CustomCucumberPlugin implements ConcurrentEventListener {
 
     @Override
     public void setEventPublisher(EventPublisher publisher) {
@@ -50,51 +49,25 @@ public class TestRailReport implements ConcurrentEventListener {
     private EventHandler<TestCaseFinished> getTestCaseFinishedHandler() {
         return event -> {
 
-//            PreemptiveBasicAuthScheme authScheme = new PreemptiveBasicAuthScheme();
-//            authScheme.setUserName("fakemail@tech.co");
-//            authScheme.setPassword("Abc123");
-//
-//            RequestSpecification REQUEST_SPECIFICATION = new RequestSpecBuilder()
-//                    .setBaseUri("http://178.124.206.46")
-//                    .setPort(8000)
-//                    .setAccept(ContentType.JSON)
-//                    .setContentType(ContentType.JSON)
-//                    .setAuth(authScheme)
-//                    .log(LogDetail.ALL)
-//                    .build();
-            RequestSpecification pipi = Assured.requestSpecification(Authentication.authSheme());
-
             Result.Type status = event.result.getStatus();
-            int st = 1;
 
-            switch (status) {
-                case PASSED:
-                    st = 1;
-                    break;
-                case FAILED:
-                    st = 5;
-                    break;
-            }
+            int result = new day23ClassWork.homeWork.utils.reporter.Result().Result(status);
 
-            int cseId = Integer.parseInt(event.testCase.getTags().stream().findFirst().get().getName().substring(1));
+            int caseId = Integer.parseInt(event.testCase.getTags().stream().findFirst().get().getName().substring(1));
 
-            String body = "{\"status_id\": " + st + "," +
-                    "\"comment\": \"This test Dimitrius\"," +
-                    "\"elapsed\": \"15s\"," +
-                    "\"defects\": \"TR-7\"," +
-                    "\"version\": \"1.0 RC1 build 3724\"}";
+            TestRailConnector.testRailResultSend(caseId,TestRailConnector.testRailAuthentication(),result);
 
-            System.out.println(
-                    RestAssured
-                            .given()
-                            .spec(pipi)
-                            .body(body)
-                            .when()
-                            .post("index.php?/api/v2/add_result_for_case/361/" + cseId)
-//                    .get("index.php?/api/v2/get_cases/7&suite_id=358")
-                            .then()
-                            .extract().body().asString()
-            );
+//            System.out.println(
+//                    RestAssured
+//                            .given()
+//                            .spec(Assured.requestSpecification(Authentication.authSheme()))
+//                            .body(TestStatusBody.body(result))
+//                            .when()
+//                            .post("index.php?/api/v2/add_result_for_case/413/" + caseId)
+////                    .get("index.php?/api/v2/get_cases/7&suite_id=358")
+//                            .then()
+//                            .extract().body().asString()
+//            );
         };
     }
 

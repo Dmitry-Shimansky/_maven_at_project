@@ -1,4 +1,4 @@
-package day23ClassWork.homeWork.utils;
+package day23ClassWork.homeWork.utils.reporter;
 
 import day23ClassWork.homeWork.settings.ConfigCreds;
 import io.restassured.authentication.PreemptiveBasicAuthScheme;
